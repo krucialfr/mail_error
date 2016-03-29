@@ -336,7 +336,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 
 			$new_email = str_replace(' ', '.', $new_email);
 			$new_email = str_replace('..', '.', $new_email);
-$debug = 1;
+
 	if($debug) echo "Email : $email / User : $user / Domaine : $domaine / FAI : $serveur / Extension : $extension / Nouvel email : $new_email\n";
 	return($new_email);
  	}

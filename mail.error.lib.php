@@ -68,6 +68,7 @@
 			$bad_domaine["orangr"] = "orange";
 			$bad_domaine["orang"] = "orange";
 			$bad_domaine["orangefr"] = "orange";
+			$bad_domaine["orangf"] = "orange";
 			$bad_domaine["orangfr"] = "orange";
 			$bad_domaine["orang"] = "orange";
 			$bad_domaine["orande"] = "orange";

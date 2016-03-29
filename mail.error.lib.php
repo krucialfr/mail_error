@@ -281,6 +281,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 				$bad_extension["fdr"] = "fr";
 				$bad_extension["frp"] = "fr";
 				$bad_extension["cfr"] = "fr";
+				$bad_extension["dfr"] = "fr";
 
 			// .COM
 

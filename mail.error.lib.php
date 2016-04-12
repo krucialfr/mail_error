@@ -84,6 +84,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 			// la poste
 
 				$bad_domaine["lapostee"] = "laposte";
+				$bad_domaine["lapostenet"] = "laposte";
 				$force_extension["laposte"] = 'net';
 
 			// Numericable

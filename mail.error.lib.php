@@ -207,8 +207,10 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["hotmai-com"] = "hotmail";
 					$bad_domaine["hotmail"] = "hotmail";
 					$bad_domaine["hotmai"] = "hotmail";
+					$bad_domaine["hogmail"] = "hotmail";
 					$bad_domaine["hohtmail"] = "hotmail";
 					$bad_domaine["hotailmait"] = "hotmail";
+					$bad_domaine["htmail"] = "hotmail";
 					$bad_domaine["hotmailfr"] = "hotmail";
 					$bad_domaine["hotuail"] = "hotmail";
 					$bad_domaine["hotmail"] = "hotmail";
@@ -385,6 +387,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_extension["co"] = "com";
 					$bad_extension["comv"] = "com";
 					$bad_extension["comc"] = "com";
+					$bad_extension["comp"] = "com";
 
 				// .NET
 

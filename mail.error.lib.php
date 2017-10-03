@@ -213,9 +213,18 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["htmail"] = "hotmail";
 					$bad_domaine["hotmailfr"] = "hotmail";
 					$bad_domaine["hotuail"] = "hotmail";
+					$bad_domaine["hotamil"] = "hotmail";
+					$bad_domaine["hotamail"] = "hotmail";
+					$bad_domaine["h0tmail"] = "hotmail";
 					$bad_domaine["hotmail"] = "hotmail";
+					$bad_domaine["htomail"] = "hotmail";
+					$bad_domaine["otmail"] = "hotmail";
 					$bad_domaine["hotmaim"] = "hotmail";
 					$bad_domaine["hotmain"] = "hotmail";
+					$bad_domaine["homtail"] = "hotmail";
+					$bad_domaine["homail"] = "hotmail";
+					$bad_domaine["hotrmail"] = "hotmail";
+					$bad_domaine["hortmail"] = "hotmail";
 					$bad_domaine["hotm"] = "hotmail";
 					$bad_domaine["liv"] = "live";
 					$bad_domaine["ive"] = "live";
@@ -254,9 +263,14 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["yahooo"] = "yahoo";
 					$bad_domaine["yaoo"] = "yahoo";
 					$bad_domaine["yhahoo"] = "yahoo";
+					$bad_domaine["yohoo"] = "yahoo";
 					$bad_domaine["yahoo-fr"] = "yahoo";
 					$bad_domaine["yahoofr"] = "yahoo";
 					$bad_domaine["yhahoo"] = "yahoo";
+					$bad_domaine["yaho"] = "yahoo";
+					$bad_domaine["yhoo"] = "yahoo";
+					$bad_domaine["yhaoo"] = "yahoo";
+					$bad_domaine["ayhoo"] = "yahoo";
 
 				// sfr
 
@@ -303,6 +317,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$force_extension["cegetel"] = 'net';
 					$bad_domaine["alicedasl"] = "aliceadsl";
 					$force_extension["aliceadsl"] = 'fr';
+					$bad_domaine["kynet"] = "skynet";
 
 				// On met a jour le domaine
 					if($debug) echo "On regarde les serveurs ...\n";

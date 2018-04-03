@@ -72,6 +72,10 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 		$domaine = preg_replace('|(.*)\.$|', "$1", $domaine);
 		$domaine = preg_replace('|^\.(.*)|', "$1", $domaine);
 		$domaine_element = explode('.', $domaine);
+		
+		// On vire le dernier point (et le premier)
+		$user = preg_replace('|(.*)\.$|', "$1", $user);
+		$user = preg_replace('|^\.(.*)|', "$1", $user);
 
 		if(count($domaine_element) == 1)
 			{
@@ -147,6 +151,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["numericablle"] = "numericable";
 					$bad_domaine["numericbale"] = "numericable";
 					$bad_domaine["numericable-fr"] = "numericable";
+					$bad_domaine["numericalbe"] = "numericable";
 
 				// Orange
 
@@ -225,6 +230,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["homail"] = "hotmail";
 					$bad_domaine["hotrmail"] = "hotmail";
 					$bad_domaine["hortmail"] = "hotmail";
+					$bad_domaine["homatil"] = "hotmail";
 					$bad_domaine["hotm"] = "hotmail";
 					$bad_domaine["liv"] = "live";
 					$bad_domaine["ive"] = "live";
@@ -316,6 +322,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$force_extension["libertysurf"] = 'fr';
 					$force_extension["cegetel"] = 'net';
 					$bad_domaine["alicedasl"] = "aliceadsl";
+					$bad_domaine["aliceafsl"] = "aliceadsl";
 					$force_extension["aliceadsl"] = 'fr';
 					$bad_domaine["kynet"] = "skynet";
 
@@ -415,6 +422,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_extension["neg"] = "net";
 					$bad_extension["nety"] = "net";
 					$bad_extension["nrt"] = "net";
+					$bad_extension["netl"] = "net";
 
 				// On met ˆ jour le extension
 

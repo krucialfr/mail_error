@@ -41,7 +41,10 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
  function mail_detect_erreur($email, $debug = false)
  	{
  	// Miniscule
-
+//$debug = true;
+		if($debug) echo "Ok on verifie $email\n";
+		if(empty($email))
+			return('');
  		$email = strtolower($email);
 
  	// Extensions à deux elements
@@ -67,15 +70,40 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 
 		list($user, $domaine) = explode("@", $new_email);
 		$domaine = str_replace(' ', '', $domaine);
-
-		// On vire le dernier point (et le premier)
-		$domaine = preg_replace('|(.*)\.$|', "$1", $domaine);
-		$domaine = preg_replace('|^\.(.*)|', "$1", $domaine);
-		$domaine_element = explode('.', $domaine);
 		
-		// On vire le dernier point (et le premier)
+		// On vire les premiers points et les dernier du user
 		$user = preg_replace('|(.*)\.$|', "$1", $user);
 		$user = preg_replace('|^\.(.*)|', "$1", $user);
+			
+
+		// domaine
+		
+			// Quelques domaines courant pouvant etre bloqués dans le user (oublie de @)
+			if(empty($domaine))
+				{
+				if($debug) echo "On regarde si un arobase n'a pas ete oublie ...\n";
+				$domaine_courant = array("gmail.com", "hotmail.fr", "yahoo.fr", "orange.fr", "hotmail.com", "free.fr", "wanadoo.fr", "laposte.net", "live.fr", "sfr.fr", "neuf.fr", "voila.fr", "aol.com", "msn.com", "yahoo.com", "aliceadsl.fr", "bbox.fr", "outlook.fr", "club-internet.fr", "cegetel.net", "numericable.fr", "gmx.fr", "yopmail.com", "outlook.com", "me.com", "icloud.com", "libertysurf.fr", "netcourrier.com", "9online.fr", "dbmail.com", "skynet.be", "tele2.fr", "aol.fr", "live.com", "noos.fr", "infonie.fr", "bluewin.ch", "caramail.com");
+				foreach($domaine_courant as $this_domaine_courant)
+					{
+					$pos = strripos($user, $this_domaine_courant);
+					$possible_place = strlen($user)-strlen($this_domaine_courant);
+					if($pos !== false && $pos == $possible_place)
+						{
+						$user = substr($user, 0, $pos);
+						$domaine = $this_domaine_courant;
+						$new_email = $user.'@'.$domaine;
+						if($debug) echo "On transforme l'email en $new_email ($user @ $domaine)\n";
+						//return($user.'-'.$domaine);
+						}
+					}
+				if(empty($domaine))
+					return($email);
+				}
+				
+			// On vire le dernier point (et le premier)
+			$domaine = preg_replace('|(.*)\.$|', "$1", $domaine);
+			$domaine = preg_replace('|^\.(.*)|', "$1", $domaine);
+			$domaine_element = explode('.', $domaine);
 
 		if(count($domaine_element) == 1)
 			{
@@ -121,6 +149,8 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 			{
 			$traite = false;
 			}
+			
+	// Pas du tout de domaine ?
 
 	// Le domaine
 

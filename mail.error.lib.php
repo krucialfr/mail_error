@@ -70,7 +70,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 
 		list($user, $domaine) = explode("@", $new_email);
 		$domaine = str_replace(' ', '', $domaine);
-<<<<<<< HEAD
 		
 		// On vire les premiers points et les dernier du user
 		$user = preg_replace('|(.*)\.$|', "$1", $user);
@@ -105,13 +104,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 			$domaine = preg_replace('|(.*)\.$|', "$1", $domaine);
 			$domaine = preg_replace('|^\.(.*)|', "$1", $domaine);
 			$domaine_element = explode('.', $domaine);
-=======
-
-		// On vire le dernier point (et le premier)
-		$domaine = preg_replace('|(.*)\.$|', "$1", $domaine);
-		$domaine = preg_replace('|^\.(.*)|', "$1", $domaine);
-		$domaine_element = explode('.', $domaine);
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 
 		if(count($domaine_element) == 1)
 			{
@@ -149,7 +141,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 			$serveur = trim($serveur);
 			$extension = trim($extension);
 			}
-<<<<<<< HEAD
 
 	// On regarde si c'est pas en whitelist
 
@@ -166,22 +157,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 		if($traite)
 			{
 
-=======
-
-	// On regarde si c'est pas en whitelist
-
-		$traite = true;
-		if($ok_domaine[$domaine])
-			{
-			$traite = false;
-			}
-
-	// Le domaine
-
-		if($traite)
-			{
-
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 			// Cas particulier
 
 				if(empty($extension))
@@ -206,10 +181,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["numericablle"] = "numericable";
 					$bad_domaine["numericbale"] = "numericable";
 					$bad_domaine["numericable-fr"] = "numericable";
-<<<<<<< HEAD
 					$bad_domaine["numericalbe"] = "numericable";
-=======
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 
 				// Orange
 
@@ -288,10 +260,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_domaine["homail"] = "hotmail";
 					$bad_domaine["hotrmail"] = "hotmail";
 					$bad_domaine["hortmail"] = "hotmail";
-<<<<<<< HEAD
 					$bad_domaine["homatil"] = "hotmail";
-=======
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 					$bad_domaine["hotm"] = "hotmail";
 					$bad_domaine["liv"] = "live";
 					$bad_domaine["ive"] = "live";
@@ -383,10 +352,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$force_extension["libertysurf"] = 'fr';
 					$force_extension["cegetel"] = 'net';
 					$bad_domaine["alicedasl"] = "aliceadsl";
-<<<<<<< HEAD
 					$bad_domaine["aliceafsl"] = "aliceadsl";
-=======
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 					$force_extension["aliceadsl"] = 'fr';
 					$bad_domaine["kynet"] = "skynet";
 
@@ -396,7 +362,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 						{
 						if($serveur == $key)
 							{
-<<<<<<< HEAD
 
 							if($debug) echo $key." -> ".$value;
 							$serveur = $value;
@@ -415,26 +380,6 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 							}
 						}
 
-=======
-
-							if($debug) echo $key." -> ".$value;
-							$serveur = $value;
-							}
-						}
-
-				// On met a jour le domaine
-					if($debug) echo "On regarde les extensions en fonction du nom de domaine ...\n";
-					foreach($force_extension as $key => $value)
-						{
-						if($serveur == $key)
-							{
-
-							if($debug) echo $key." -> ".$value;
-							$extension = $value;
-							}
-						}
-
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 			// Extensions
 
 				// .FR
@@ -507,10 +452,7 @@ function mail_detect_nettoyage_de_mot($mot, $lettres_admises, $espace=false)
 					$bad_extension["neg"] = "net";
 					$bad_extension["nety"] = "net";
 					$bad_extension["nrt"] = "net";
-<<<<<<< HEAD
 					$bad_extension["netl"] = "net";
-=======
->>>>>>> f46ddcbe55f0c85e79013179a7ed4d6cceb2d556
 
 				// On met ˆ jour le extension
 
